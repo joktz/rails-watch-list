@@ -1,11 +1,23 @@
 <div class="container">
-  <%= @list.name %>
-  <ul>
+  <h1> <%= @list.name %> </h2>
+  <ul class="row">
     <% @list.movies.each do |movie| %>
-      <li class="container">
-        <img src="<%= movie.poster_url %>"/>
-        <%= movie.title %>
-        <%= movie.overview %>
+      <% bookmark = Bookmark.where(movie: movie, list: @list).first %>
+      <li class="card col-6 cold-md-4 mr-3">
+        <div class="card-img">
+          <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_url %>"/>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"> <%= movie.title %></h4>
+          <p class="card-text"> <%= movie.overview %> </p>
+          <p> Rating: <%= movie.rating %>
+            <% movie.rating.round.times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %></p>
+          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turb_confirm: "Delete bookmark?"} do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>
