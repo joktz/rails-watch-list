@@ -3,7 +3,10 @@
   <div class="container">
     <ul>
       <% @lists.each do |list| %>
-        <li><%= link_to list.name, list_path(list) %>
+        <li class="card">
+          <%= link_to list.name, list_path(list), class: "card title" %>
+          <%= @list.photo.key, height:300, width: 400, crop: :fill %>
+        </li>
       <% end %>
     </ul>
   </div>
