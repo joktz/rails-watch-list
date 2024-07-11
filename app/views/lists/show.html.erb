@@ -14,7 +14,7 @@
             <% movie.rating.round.times do %>
               <i class="fa-solid fa-star"></i>
             <% end %></p>
-          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turb_confirm: "Delete bookmark?"} do %>
+          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Delete bookmark?"} do %>
             <i class="fa-solid fa-trash"></i>
           <% end %>
         </div>
