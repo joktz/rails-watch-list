@@ -11,10 +11,11 @@
   </head>
   <body>
     <nav class="navbar bg-light">
-      <i class="fa-solid fa-film ml-auto"></i>
+      <%= link_to lists_path do %>
+        <i class="fa-solid fa-film ml-auto m-3"></i>
+      <% end %>
       <h4 class="ml-auto"> Watch List </h4>
-      <%= link_to "My lists", lists_path, class: "btn btn-primary mr-auto" %>
-      <%= link_to "New List", new_list_path, class: "btn btn-primary mr-auto" %>
+      <%= link_to "New List", new_list_path, class: "btn btn-primary mr-auto m-3" %>
     </nav>
     <%= yield %>
   </body>

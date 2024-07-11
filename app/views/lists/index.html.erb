@@ -1,11 +1,9 @@
-<div class="container">
-  <h1> Lists </h1>
-  <div class="container">
-    <ul>
+<div class="background">
+  <div>
+    <ul id="list-index" class="list-unstyled d-flex flex-wrap">
       <% @lists.each do |list| %>
-        <li class="card">
-          <%= link_to list.name, list_path(list), class: "card title" %>
-          <%= @list.photo.key, height:300, width: 400, crop: :fill %>
+        <li class="card m-3 col-3" id="list-item">
+          <%= link_to list.name, list_path(list) %>
         </li>
       <% end %>
     </ul>
